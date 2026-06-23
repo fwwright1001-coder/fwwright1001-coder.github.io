@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Forrest Wright — AI Implementation Consultant</title>
+<meta name="description" content="Forrest Wright — AI Implementation Consultant. I design and integrate internal AI and data systems across ERP, CRM, and quality-control data: architecting, directing AI coding tools, and verifying end to end." />
+<meta property="og:title" content="Forrest Wright — AI Implementation Consultant" />
+<meta property="og:description" content="Internal AI & automation across ERP, CRM, and QC data — Claude API, RAG, SQL Server, HubSpot." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#0f172a; --panel:#1e293b; --ink:#0f172a; --paper:#ffffff;
+    --muted:#64748b; --line:#e2e8f0; --accent:#2563eb; --accent-2:#0ea5e9;
+    --chip:#eff6ff; --chip-ink:#1d4ed8;
+    --max:880px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  /* Hero */
+  header.hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 60%,#1e3a8a 100%);color:#e2e8f0;padding:84px 0 64px}
+  header.hero .wrap{display:block}
+  .eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#7dd3fc;font-weight:600}
+  h1{font-size:clamp(2.1rem,5vw,3rem);font-weight:800;color:#fff;margin:.35em 0 .15em;letter-spacing:-.02em}
+  .role{font-size:1.15rem;color:#bae6fd;font-weight:600;margin-bottom:1.1rem}
+  .lede{font-size:1.06rem;color:#cbd5e1;max-width:680px}
+  .meta{margin-top:1.2rem;color:#94a3b8;font-size:.95rem}
+  .cta{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-block;padding:10px 18px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid transparent}
+  .btn.primary{background:var(--accent-2);color:#08233a}
+  .btn.ghost{border-color:#475569;color:#e2e8f0}
+  .btn:hover{text-decoration:none;transform:translateY(-1px);transition:transform .12s}
+  /* Sections */
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  h2{font-size:1.45rem;font-weight:800;letter-spacing:-.01em;margin-bottom:1.1rem;color:#0f172a}
+  h2 .bar{display:inline-block;width:26px;height:3px;background:var(--accent);border-radius:2px;vertical-align:middle;margin-right:10px}
+  p.sec{color:#334155;max-width:720px}
+  /* Skills */
+  .skills{display:grid;grid-template-columns:1fr;gap:18px}
+  .skillgroup h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--chip);color:var(--chip-ink);font-size:.85rem;font-weight:600;padding:5px 11px;border-radius:999px}
+  /* Experience */
+  .job{padding:18px 0;border-top:1px solid var(--line)}
+  .job:first-child{border-top:none}
+  .job .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px}
+  .job .title{font-weight:700;color:#0f172a}
+  .job .co{color:#475569;font-size:.95rem}
+  .job .dates{color:var(--muted);font-size:.88rem;white-space:nowrap}
+  .job ul{margin:.5rem 0 0 1.1rem;color:#334155}
+  .job li{margin:.2rem 0}
+  /* Projects */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .card h3{font-size:1.05rem;color:#0f172a;margin-bottom:.4rem}
+  .card p{color:#475569;font-size:.93rem}
+  .card .links{margin-top:.7rem;display:flex;gap:14px;font-weight:600;font-size:.9rem}
+  .tag{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#0e7490;background:#ecfeff;padding:3px 8px;border-radius:6px}
+  /* Education */
+  .edu .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;padding:10px 0;border-top:1px solid var(--line)}
+  .edu .row:first-child{border-top:none}
+  .edu .deg{color:#334155}
+  .edu .sch{font-weight:700;color:#0f172a}
+  footer{background:#0f172a;color:#94a3b8;padding:40px 0;text-align:center;font-size:.9rem}
+  footer a{color:#7dd3fc}
+  @media(min-width:680px){.skills{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Nashville, TN · Remote-friendly</div>
+    <h1>Forrest Wright</h1>
+    <div class="role">AI Implementation Consultant</div>
+    <p class="lede">I design and integrate internal AI and data systems across ERP, CRM, and quality-control data — architecting the solution, directing AI coding tools to build it, then debugging and verifying it end to end. Grounded in real operations, quality-control, and sales-operations experience.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:fwwright1001@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/forrest-wright" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/fwwright1001-coder" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2><span class="bar"></span>About</h2>
+    <p class="sec">Business-facing AI implementer with a quality-control → CRM/sales-operations → applied-AI arc. I digitized a paper-based quality system, ran a HubSpot rollout with hands-on training and team adoption, and now build internal AI copilots that connect ERP, CRM, and QC data so non-technical staff can ask operational questions in plain language. I'm strongest where AI automation has to connect real business systems, clean up workflows, and actually get adopted by the people using them. Currently pursuing an M.S. in Applied AI at Lipscomb University.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span class="bar"></span>Skills</h2>
+    <div class="skills">
+      <div class="skillgroup">
+        <h3>AI &amp; Automation</h3>
+        <div class="chips">
+          <span class="chip">Anthropic Claude API</span><span class="chip">RAG architecture</span><span class="chip">Vector DBs (Qdrant)</span><span class="chip">Prompt engineering</span><span class="chip">LLM intent routing</span><span class="chip">n8n</span><span class="chip">Ollama</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <h3>Languages &amp; Backend</h3>
+        <div class="chips">
+          <span class="chip">SQL / T-SQL</span><span class="chip">Python</span><span class="chip">JavaScript / TypeScript</span><span class="chip">FastAPI</span><span class="chip">REST integration</span><span class="chip">SQL Server</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <h3>Frontend &amp; Data</h3>
+        <div class="chips">
+          <span class="chip">React</span><span class="chip">Vite</span><span class="chip">TanStack</span><span class="chip">Tremor</span><span class="chip">Power BI</span><span class="chip">ETL</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <h3>Enterprise &amp; Tooling</h3>
+        <div class="chips">
+          <span class="chip">HubSpot CRM / RevOps</span><span class="chip">ERP integration</span><span class="chip">Lean Six Sigma</span><span class="chip">Docker / Compose</span><span class="chip">GitHub Actions</span><span class="chip">pytest</span><span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2><span class="bar"></span>Experience</h2>
+
+    <div class="job">
+      <div class="top">
+        <div><span class="title">AI Implementation Consultant</span> <span class="co">· Com-Pac International (Remote)</span></div>
+        <div class="dates">Nov 2025 – Present</div>
+      </div>
+      <ul>
+        <li>Leading the build of the company's first internal AI platform — unifying ERP, CRM, and QC data behind a SQL Server service layer, queryable in natural language through a Qdrant-backed RAG pipeline on the Anthropic Claude API.</li>
+        <li>Standing up natural-language querying of operational data (inventory, sales orders, WIP, QC results) for non-technical staff.</li>
+        <li>Replacing legacy Crystal Reports and manual exports with a unified, maintainable reporting layer.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="top">
+        <div><span class="title">Sales Operations Coordinator</span> <span class="co">· Com-Pac International</span></div>
+        <div class="dates">Jan 2024 – Oct 2025</div>
+      </div>
+      <ul>
+        <li>Implemented HubSpot Sales &amp; Marketing Hub for the sales team; built workflows to improve CRM data quality and forecasting.</li>
+        <li>Ran hands-on HubSpot training and drove team adoption; built weekly reporting on revenue trends, conversion rates, and lead sources.</li>
+        <li>Helped design the 2025 sales commission plan with the sales director and account executives.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="top">
+        <div><span class="title">Business Development Representative</span> <span class="co">· KETIV Technologies (ANSYS Simulation)</span></div>
+        <div class="dates">Nov 2022 – Oct 2023</div>
+      </div>
+      <ul>
+        <li>Researched and qualified leads across the central U.S. territory, sourcing pipeline for an account executive.</li>
+        <li>Built HubSpot prospecting campaigns; managed leads, forecasting, and sales reporting; reported pipeline health and competitive landscape.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="top">
+        <div><span class="title">Quality Control Project Coordinator</span> <span class="co">· Com-Pac International</span></div>
+        <div class="dates">Jan 2018 – Aug 2022</div>
+      </div>
+      <ul>
+        <li>Owned the quality-control process end to end under a Total Quality Management (TQM) approach — from defining quality standards to resolving defective product.</li>
+        <li>Applied Lean Six Sigma to redesign QC processes and converted QC data from paper to a digital system; trained the QC team and ran weekly training.</li>
+        <li>Used root-cause analysis of product defects to cut scrap, rework, and QC-related costs.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="bar"></span>Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Weekend Road Trip</h3>
+        <p>Full-stack browser game in vanilla JS + HTML5 Canvas, backed by a Vercel serverless API and Neon Postgres. CI runs a deterministic balance simulation plus DOM smoke and API contract tests on every push; accessibility throughout.</p>
+        <div class="links">
+          <a href="https://weekend-road-trip-forrestw200.vercel.app" target="_blank" rel="noopener">Live demo →</a>
+          <a href="https://github.com/fwwright1001-coder/weekend-road-trip" target="_blank" rel="noopener">Code →</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Private</span>
+        <h3 style="margin-top:.5rem">Internal AI Command Center</h3>
+        <p>A production internal AI/operations platform unifying ERP, CRM, and QC data behind a SQL Server service layer with a Qdrant-backed RAG pipeline on the Claude API. Described only through sanitized architecture and implementation patterns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="edu">
+  <div class="wrap">
+    <h2><span class="bar"></span>Education &amp; Certifications</h2>
+    <div class="row"><span class="sch">Lipscomb University</span><span class="deg">M.S. Applied Artificial Intelligence — in progress (Grad Certificate Dec 2026, M.S. 2027)</span></div>
+    <div class="row"><span class="sch">Texas Tech University</span><span class="deg">B.A. Business Management — Strategic Entrepreneurship, Process Improvement</span></div>
+    <div class="row"><span class="sch">John A. Logan College</span><span class="deg">Associate of Arts</span></div>
+    <div class="row"><span class="sch">Certifications</span><span class="deg">Lean Six Sigma Green Belt (Purdue) · HubSpot</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Forrest Wright · Nashville, TN · <a href="mailto:fwwright1001@gmail.com">fwwright1001@gmail.com</a></p>
+    <p style="margin-top:6px"><a href="https://www.linkedin.com/in/forrest-wright" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/fwwright1001-coder" target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>
