@@ -1,220 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Forrest Wright — AI Implementation Consultant</title>
-<meta name="description" content="Forrest Wright — AI Implementation Consultant. I design and integrate internal AI and data systems across ERP, CRM, and quality-control data: architecting, directing AI coding tools, and verifying end to end." />
-<meta property="og:title" content="Forrest Wright — AI Implementation Consultant" />
-<meta property="og:description" content="Internal AI & automation across ERP, CRM, and QC data — Claude API, RAG, SQL Server, HubSpot." />
-<meta property="og:type" content="website" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forrest Wright - Business Systems Analyst</title>
+<meta name="description" content="Forrest Wright, Business Systems Analyst in Nashville, TN. Three business-system rollouts since 2018: UniPoint QMS, HubSpot CRM and an AI reporting platform on SYSPRO ERP data. Open to contract and contract-to-hire.">
+<meta name="theme-color" content="#0f172a">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fwwright1001-coder.github.io">
+<meta property="og:title" content="Forrest Wright - Business Systems Analyst">
+<meta property="og:description" content="Business Systems Analyst in Nashville, TN. Three business-system rollouts since 2018. Open to contract and contract-to-hire.">
 <style>
   :root{
-    --bg:#0f172a; --panel:#1e293b; --ink:#0f172a; --paper:#ffffff;
-    --muted:#64748b; --line:#e2e8f0; --accent:#2563eb; --accent-2:#0ea5e9;
-    --chip:#eff6ff; --chip-ink:#1d4ed8;
-    --max:880px;
+    --hero-a:#0f172a; --hero-b:#1e293b; --hero-c:#1e3a8a;
+    --ink:#0f172a; --text:#334155; --muted:#5b6b82;
+    --paper:#ffffff; --tint:#f8fafc; --line:#e2e8f0;
+    --accent:#2563eb; --accent-ink:#1d4ed8; --accent-2:#0ea5e9; --sky:#7dd3fc; --sky-2:#bae6fd;
+    --chip:#eff6ff;
+    --max:64rem; --gutter:16px; --radius:14px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  *,*::before,*::after{box-sizing:border-box}
+  html{font-size:100%;-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:1.0625rem;line-height:1.65;color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+  h1,h2,h3,p,ul{margin:0}
+  ul{padding:0;list-style:none}
+  a{color:var(--accent-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+  a:hover{text-decoration-thickness:2px}
+  a:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px;border-radius:4px}
+  strong{color:var(--ink)}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+
   /* Hero */
-  header.hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 60%,#1e3a8a 100%);color:#e2e8f0;padding:84px 0 64px}
-  header.hero .wrap{display:block}
-  .eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#7dd3fc;font-weight:600}
-  h1{font-size:clamp(2.1rem,5vw,3rem);font-weight:800;color:#fff;margin:.35em 0 .15em;letter-spacing:-.02em}
-  .role{font-size:1.15rem;color:#bae6fd;font-weight:600;margin-bottom:1.1rem}
-  .lede{font-size:1.06rem;color:#cbd5e1;max-width:680px}
-  .meta{margin-top:1.2rem;color:#94a3b8;font-size:.95rem}
-  .cta{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:12px}
-  .btn{display:inline-block;padding:10px 18px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid transparent}
+  .hero{background:linear-gradient(135deg,var(--hero-a) 0%,var(--hero-b) 60%,var(--hero-c) 100%);color:#e2e8f0;padding:64px 0 56px}
+  .eyebrow{font-size:1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+  h1{font-size:clamp(2.5rem,9vw,3.75rem);line-height:1.05;font-weight:800;letter-spacing:-.02em;color:#fff;margin:.45em 0 .3em}
+  .role{font-size:clamp(1.25rem,4vw,1.5rem);line-height:1.3;font-weight:600;color:var(--sky-2)}
+  .lede{margin-top:1.25rem;max-width:40rem;font-size:1.125rem;color:#cbd5e1}
+  .meta{margin-top:1.25rem;max-width:40rem;font-size:1rem;color:#94a3b8}
+  .cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font-weight:600;font-size:1rem;line-height:1.2;text-decoration:none;border:1px solid rgba(0,0,0,0);flex:1 1 auto}
+  .btn:hover{text-decoration:none}
   .btn.primary{background:var(--accent-2);color:#08233a}
-  .btn.ghost{border-color:#475569;color:#e2e8f0}
-  .btn:hover{text-decoration:none;transform:translateY(-1px);transition:transform .12s}
+  .btn.primary:hover{background:#38bdf8}
+  .btn.ghost{border-color:#64748b;color:#e2e8f0}
+  .btn.ghost:hover{border-color:#cbd5e1;background:rgba(255,255,255,.06)}
+  .btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
   /* Sections */
-  section{padding:54px 0;border-bottom:1px solid var(--line)}
-  section:last-of-type{border-bottom:none}
-  h2{font-size:1.45rem;font-weight:800;letter-spacing:-.01em;margin-bottom:1.1rem;color:#0f172a}
-  h2 .bar{display:inline-block;width:26px;height:3px;background:var(--accent);border-radius:2px;vertical-align:middle;margin-right:10px}
-  p.sec{color:#334155;max-width:720px}
-  /* Skills */
-  .skills{display:grid;grid-template-columns:1fr;gap:18px}
-  .skillgroup h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{background:var(--chip);color:var(--chip-ink);font-size:.85rem;font-weight:600;padding:5px 11px;border-radius:999px}
+  section{padding:56px 0}
+  section+section{border-top:1px solid var(--line)}
+  .tint{background:var(--tint)}
+  h2{font-size:clamp(1.5rem,5vw,1.9rem);line-height:1.2;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-bottom:1.25rem}
+  h2::before{content:"";display:inline-block;width:28px;height:4px;border-radius:2px;background:var(--accent);margin-right:12px;vertical-align:.3em}
+  .intro{max-width:44rem;margin-bottom:2rem}
+  .prose{max-width:44rem}
+  .prose p+p{margin-top:1rem}
+
+  /* Three rollouts */
+  .rollouts{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 1px 2px rgba(15,23,42,.04);display:flex;flex-direction:column;gap:.75rem;min-width:0}
+  .card h3{font-size:1.35rem;line-height:1.25;font-weight:800;color:var(--ink)}
+  .kicker{font-size:1rem;font-weight:600;letter-spacing:.02em;color:var(--accent-ink)}
+  .sub{font-size:1rem;color:var(--muted)}
+  .outcome{margin-top:auto;padding:14px 16px;border-left:4px solid var(--accent);background:var(--chip);border-radius:0 10px 10px 0;color:var(--ink)}
+  .outcome strong{display:block;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.25rem}
+
   /* Experience */
-  .job{padding:18px 0;border-top:1px solid var(--line)}
-  .job:first-child{border-top:none}
-  .job .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px}
-  .job .title{font-weight:700;color:#0f172a}
-  .job .co{color:#475569;font-size:.95rem}
-  .job .dates{color:var(--muted);font-size:.88rem;white-space:nowrap}
-  .job ul{margin:.5rem 0 0 1.1rem;color:#334155}
-  .job li{margin:.2rem 0}
-  /* Projects */
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .card{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-  .card h3{font-size:1.05rem;color:#0f172a;margin-bottom:.4rem}
-  .card p{color:#475569;font-size:.93rem}
-  .card .links{margin-top:.7rem;display:flex;gap:14px;font-weight:600;font-size:.9rem}
-  .tag{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#0e7490;background:#ecfeff;padding:3px 8px;border-radius:6px}
-  /* Education */
-  .edu .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;padding:10px 0;border-top:1px solid var(--line)}
-  .edu .row:first-child{border-top:none}
-  .edu .deg{color:#334155}
-  .edu .sch{font-weight:700;color:#0f172a}
-  footer{background:#0f172a;color:#94a3b8;padding:40px 0;text-align:center;font-size:.9rem}
-  footer a{color:#7dd3fc}
-  @media(min-width:680px){.skills{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+  .job{padding:28px 0;border-top:1px solid var(--line)}
+  .job:first-of-type{border-top:none;padding-top:0}
+  .job-head{display:flex;flex-direction:column;gap:2px}
+  .job-head h3{order:0;font-size:1.25rem;line-height:1.3;font-weight:700;color:var(--ink)}
+  .job-head .co{order:1;color:var(--text)}
+  .job-head .note{order:2;font-size:1rem;color:var(--muted)}
+  .job-head .dates{order:3;margin-top:2px;font-size:1rem;font-weight:600;color:var(--muted)}
+  .bullets{margin-top:.9rem;padding-left:1.25rem;list-style:disc}
+  .bullets li{margin:.45rem 0;padding-left:.15rem}
+  .bullets li::marker{color:var(--accent)}
+
+  /* Skills */
+  .skillgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+  .group h3{font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips li{background:var(--chip);color:var(--accent-ink);font-size:1rem;font-weight:600;line-height:1.35;padding:7px 12px;border-radius:10px}
+
+  /* Side project */
+  .project{max-width:44rem}
+  .project .card{gap:.6rem}
+  .links{display:flex;flex-wrap:wrap;gap:4px 24px;margin-top:.25rem}
+  .links a,.contact a,.foot-links a{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+  .aside{margin-top:1.5rem;max-width:44rem;color:var(--muted);font-size:1rem}
+
+  /* Education and certifications */
+  .edu{max-width:44rem}
+  .edu li{padding:14px 0;border-top:1px solid var(--line)}
+  .edu li:first-child{border-top:none;padding-top:0}
+  .edu strong{display:block}
+  .certs{margin-top:1.5rem;max-width:44rem;padding:16px 20px;background:var(--tint);border:1px solid var(--line);border-radius:var(--radius)}
+  .certs h3{font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  /* Contact */
+  .contact{margin-top:1.25rem;display:grid;gap:4px}
+  .contact li{display:flex;flex-wrap:wrap;align-items:center;gap:0 12px}
+  .lbl{min-width:5.5rem;font-weight:600;color:var(--muted)}
+
+  /* Footer */
+  footer{background:var(--hero-a);color:#94a3b8;padding:40px 0;font-size:1rem}
+  footer a{color:var(--sky)}
+  .foot-links{display:flex;flex-wrap:wrap;gap:0 24px;margin-top:.25rem}
+
+  /* Wider screens */
+  @media (min-width:720px){
+    :root{--gutter:32px}
+    .hero{padding:112px 0 96px}
+    .btn{flex:0 0 auto}
+    section{padding:88px 0}
+    .job-head{flex-direction:row;flex-wrap:wrap;align-items:baseline;justify-content:space-between;column-gap:16px}
+    .job-head .dates{order:1;margin-top:0}
+    .job-head .co{order:2;flex-basis:100%}
+    .job-head .note{order:3;flex-basis:100%}
+    .skillgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (min-width:960px){
+    .rollouts{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{padding:28px}
+  }
+  @media print{
+    .hero,footer{background:#fff;color:#000}
+    h1,.role,.lede,.eyebrow,footer a{color:#000}
+    .btn{border:1px solid #000;background:none;color:#000}
+    .card{box-shadow:none}
+  }
 </style>
 </head>
 <body>
+
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Nashville, TN · Remote-friendly</div>
+    <p class="eyebrow">Nashville, TN · Open to contract and contract-to-hire</p>
     <h1>Forrest Wright</h1>
-    <div class="role">AI Implementation Consultant</div>
-    <p class="lede">I design and integrate internal AI and data systems across ERP, CRM, and quality-control data — architecting the solution, directing AI coding tools to build it, then debugging and verifying it end to end. Grounded in real operations, quality-control, and sales-operations experience.</p>
+    <p class="role">Business Systems Analyst</p>
+    <p class="lede">System rollouts, user training and operations reporting. Three business-system rollouts since 2018: UniPoint QMS, HubSpot CRM and an AI reporting platform on SYSPRO ERP data. Each time I set the system up and got its users working in it.</p>
+    <p class="meta">HubSpot CRM · UniPoint QMS · SYSPRO ERP reporting · Crystal Reports inventory and conversion · Lean Six Sigma Green Belt</p>
     <div class="cta">
-      <a class="btn primary" href="mailto:fwwright1001@gmail.com">Email me</a>
+      <a class="btn primary" href="mailto:forrestwright1001@gmail.com">Email me</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/forrest-wright" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn ghost" href="https://github.com/fwwright1001-coder" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </header>
 
-<section id="about">
+<main>
+
+<section id="rollouts" class="tint">
   <div class="wrap">
-    <h2><span class="bar"></span>About</h2>
-    <p class="sec">Business-facing AI implementer with a quality-control → CRM/sales-operations → applied-AI arc. I digitized a paper-based quality system, ran a HubSpot rollout with hands-on training and team adoption, and now build internal AI copilots that connect ERP, CRM, and QC data so non-technical staff can ask operational questions in plain language. I'm strongest where AI automation has to connect real business systems, clean up workflows, and actually get adopted by the people using them. Currently pursuing an M.S. in Applied AI at Lipscomb University.</p>
+    <h2>Three rollouts</h2>
+    <p class="intro">The short version of my work history, outcomes first. The full history is in the experience section below.</p>
+    <div class="rollouts">
+
+      <article class="card">
+        <p class="kicker">First rollout · Quality control</p>
+        <h3>UniPoint QMS</h3>
+        <p class="sub">Quality Control Project Coordinator, Com-Pac International · Jan 2018 – Aug 2021</p>
+        <p>Moved quality control for the company's medical packaging lines from paper to UniPoint. I reviewed the specs for about 800 products, got each one approved, and set them up in the system in the first year. I tested the setup with the QC testers and trained the 8-person QC team on the software, tablets and scanners.</p>
+        <p class="outcome"><strong>Outcome</strong> Worked with the plant manager to tighten quality specs on the plant floor; the plant manager signed off on about $500K in savings. UniPoint is still Com-Pac's quality system.</p>
+      </article>
+
+      <article class="card">
+        <p class="kicker">Second rollout · Sales operations</p>
+        <h3>HubSpot CRM</h3>
+        <p class="sub">Sales Operations Coordinator, Com-Pac International · May 2023 – Nov 2025</p>
+        <p>Implemented HubSpot Sales &amp; Marketing Hub for the sales team: migrated customer contacts from SYSPRO ERP exports, set up sales goals, and built workflows to improve CRM data quality and forecasting.</p>
+        <p class="outcome"><strong>Outcome</strong> Full team adoption within 2 months, after 10 hands-on training sessions. Dashboards and a weekly report on revenue trends, conversion rates and lead sources.</p>
+      </article>
+
+      <article class="card">
+        <p class="kicker">Third rollout · Operations reporting</p>
+        <h3>AI reporting platform</h3>
+        <p class="sub">AI Implementation Consultant, Com-Pac International (Remote) · Nov 2025 – Current</p>
+        <p>Designed Com-Pac's first internal AI platform, reporting to company ownership, directed AI coding tools to build it, and verified it end to end: architecture to production in about 6 months. It connects SYSPRO ERP and HubSpot CRM data on one read-only platform.</p>
+        <p class="outcome"><strong>Outcome</strong> 15 recurring reports for ownership and department leads. The daily inventory valuation matched the ERP's own reports to the penny in its July 2026 acceptance test. A manual safety-stock check of about 2 to 4 hours a day is now an automated daily report, used every day.</p>
+      </article>
+
+    </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="about">
   <div class="wrap">
-    <h2><span class="bar"></span>Skills</h2>
-    <div class="skills">
-      <div class="skillgroup">
-        <h3>AI &amp; Automation</h3>
-        <div class="chips">
-          <span class="chip">Anthropic Claude API</span><span class="chip">RAG architecture</span><span class="chip">Vector DBs (Qdrant)</span><span class="chip">Prompt engineering</span><span class="chip">LLM intent routing</span><span class="chip">n8n</span><span class="chip">Ollama</span>
-        </div>
-      </div>
-      <div class="skillgroup">
-        <h3>Languages &amp; Backend</h3>
-        <div class="chips">
-          <span class="chip">SQL / T-SQL</span><span class="chip">Python</span><span class="chip">JavaScript / TypeScript</span><span class="chip">FastAPI</span><span class="chip">REST integration</span><span class="chip">SQL Server</span>
-        </div>
-      </div>
-      <div class="skillgroup">
-        <h3>Frontend &amp; Data</h3>
-        <div class="chips">
-          <span class="chip">React</span><span class="chip">Vite</span><span class="chip">TanStack</span><span class="chip">Tremor</span><span class="chip">Power BI</span><span class="chip">ETL</span>
-        </div>
-      </div>
-      <div class="skillgroup">
-        <h3>Enterprise &amp; Tooling</h3>
-        <div class="chips">
-          <span class="chip">HubSpot CRM / RevOps</span><span class="chip">ERP integration</span><span class="chip">Lean Six Sigma</span><span class="chip">Docker / Compose</span><span class="chip">GitHub Actions</span><span class="chip">pytest</span><span class="chip">Git</span>
-        </div>
-      </div>
+    <h2>About</h2>
+    <div class="prose">
+      <p>I am a Business Systems Analyst in Nashville, TN. Since 2018 I have rolled out three business systems at a manufacturer of medical, laboratory and specimen packaging: UniPoint QMS for quality control, HubSpot CRM for the sales team, and an AI reporting platform on SYSPRO ERP data. In between, I was a Business Development Representative at KETIV Technologies (ANSYS Simulation), Oct 2021 – Nov 2022.</p>
+      <p>Each time I set the system up and got its users working in it. My work includes refining requirements through end-user feedback and testing system setup with end users, with project coordination and end-user training as the common thread. The work I am best at is building the systems that get the right information to the people who run the business.</p>
+      <p>I hold a Lean Six Sigma Green Belt (Purdue University) and a HubSpot Academy certification, and I am a graduate student in the Master of Science in Applied Artificial Intelligence program at Lipscomb University, expected May 2027. I am open to contract and contract-to-hire work. My resume is available on request.</p>
     </div>
   </div>
 </section>
 
 <section id="experience">
   <div class="wrap">
-    <h2><span class="bar"></span>Experience</h2>
+    <h2>Experience</h2>
 
-    <div class="job">
-      <div class="top">
-        <div><span class="title">AI Implementation Consultant</span> <span class="co">· Com-Pac International (Remote)</span></div>
-        <div class="dates">Nov 2025 – Present</div>
+    <article class="job">
+      <div class="job-head">
+        <h3>AI Implementation Consultant</h3>
+        <p class="co">Com-Pac International, Carbondale, IL (Remote)</p>
+        <p class="note">Manufacturer of medical, laboratory and specimen packaging</p>
+        <p class="dates">Nov 2025 – Current</p>
       </div>
-      <ul>
-        <li>Leading the build of the company's first internal AI platform — unifying ERP, CRM, and QC data behind a SQL Server service layer, queryable in natural language through a Qdrant-backed RAG pipeline on the Anthropic Claude API.</li>
-        <li>Standing up natural-language querying of operational data (inventory, sales orders, WIP, QC results) for non-technical staff.</li>
-        <li>Replacing legacy Crystal Reports and manual exports with a unified, maintainable reporting layer.</li>
+      <ul class="bullets">
+        <li><strong>Rollout: AI reporting platform.</strong> Reporting to company ownership, designed Com-Pac's first internal AI platform, directed AI coding tools to build it, and verified it end to end: architecture to production in about 6 months.</li>
+        <li>Connected SYSPRO ERP and HubSpot CRM data on one read-only platform, and set up 15 recurring reports for ownership and department leads that follow the work from the dock to the floor, through quality and back out the door. The daily inventory valuation matched the ERP's own reports to the penny in its July 2026 acceptance test.</li>
+        <li>Replaced the purchasing manager's manual safety-stock check (about 2 to 4 hours a day) with an automated daily report, rolled out over a few weeks and adjusted through several rounds of feedback. It is used every day.</li>
+        <li>Gave the owner plain-language access to ERP data (read-only, role-based, with an audit log) and delivered an owner-level sales analysis that surfaced a pricing and margin finding ownership had not seen.</li>
+        <li>Cataloged 107 legacy Crystal Reports, then documented and converted 51 of them to SQL and Power Query versions through the same AI-directed build, as groundwork for moving company reporting to Power BI.</li>
       </ul>
-    </div>
+    </article>
 
-    <div class="job">
-      <div class="top">
-        <div><span class="title">Sales Operations Coordinator</span> <span class="co">· Com-Pac International</span></div>
-        <div class="dates">Jan 2024 – Oct 2025</div>
+    <article class="job">
+      <div class="job-head">
+        <h3>Sales Operations Coordinator</h3>
+        <p class="co">Com-Pac International, Carbondale, IL</p>
+        <p class="dates">May 2023 – Nov 2025</p>
       </div>
-      <ul>
-        <li>Implemented HubSpot Sales &amp; Marketing Hub for the sales team; built workflows to improve CRM data quality and forecasting.</li>
-        <li>Ran hands-on HubSpot training and drove team adoption; built weekly reporting on revenue trends, conversion rates, and lead sources.</li>
+      <ul class="bullets">
+        <li><strong>Rollout: HubSpot CRM.</strong> Implemented HubSpot Sales &amp; Marketing Hub for the sales team: migrated customer contacts from SYSPRO ERP exports, set up sales goals, and built workflows to improve CRM data quality and forecasting.</li>
+        <li>Ran 10 hands-on HubSpot training sessions and drove full team adoption within 2 months.</li>
+        <li>Built HubSpot dashboards and a weekly report on revenue trends, conversion rates and lead sources, with revenue pulled from SYSPRO ERP exports.</li>
         <li>Helped design the 2025 sales commission plan with the sales director and account executives.</li>
       </ul>
-    </div>
+    </article>
 
-    <div class="job">
-      <div class="top">
-        <div><span class="title">Business Development Representative</span> <span class="co">· KETIV Technologies (ANSYS Simulation)</span></div>
-        <div class="dates">Nov 2022 – Oct 2023</div>
+    <article class="job">
+      <div class="job-head">
+        <h3>Business Development Representative</h3>
+        <p class="co">KETIV Technologies (ANSYS Simulation)</p>
+        <p class="dates">Oct 2021 – Nov 2022</p>
       </div>
-      <ul>
-        <li>Researched and qualified leads across the central U.S. territory, sourcing pipeline for an account executive.</li>
-        <li>Built HubSpot prospecting campaigns; managed leads, forecasting, and sales reporting; reported pipeline health and competitive landscape.</li>
+      <ul class="bullets">
+        <li>Researched and qualified leads across the central U.S. territory, sourcing pipeline for an account executive; contributed to $300K in closed-won ANSYS simulation sales.</li>
+        <li>Built HubSpot prospecting campaigns; managed leads, forecasting and sales reporting; reported pipeline health and competitive landscape to the sales manager.</li>
       </ul>
-    </div>
+    </article>
 
-    <div class="job">
-      <div class="top">
-        <div><span class="title">Quality Control Project Coordinator</span> <span class="co">· Com-Pac International</span></div>
-        <div class="dates">Jan 2018 – Aug 2022</div>
+    <article class="job">
+      <div class="job-head">
+        <h3>Quality Control Project Coordinator</h3>
+        <p class="co">Com-Pac International, Carbondale, IL</p>
+        <p class="dates">Jan 2018 – Aug 2021</p>
       </div>
-      <ul>
-        <li>Owned the quality-control process end to end under a Total Quality Management (TQM) approach — from defining quality standards to resolving defective product.</li>
-        <li>Applied Lean Six Sigma to redesign QC processes and converted QC data from paper to a digital system; trained the QC team and ran weekly training.</li>
-        <li>Used root-cause analysis of product defects to cut scrap, rework, and QC-related costs.</li>
+      <ul class="bullets">
+        <li><strong>Rollout: UniPoint QMS.</strong> Moved quality control for the company's medical packaging lines from paper to UniPoint: reviewed the specs for about 800 products, got each one approved, and set them up in the system in the first year. UniPoint is still Com-Pac's quality system.</li>
+        <li>Tested the setup with the QC testers to make sure testing levels were realistic and accurate, and trained the 8-person QC team on the software, tablets and scanners, including how to troubleshoot issues.</li>
+        <li>Worked directly with the plant manager to tighten quality specs on the plant floor using UniPoint; the plant manager signed off on about $500K in savings.</li>
+        <li>Coordinated the quality-control process under a Total Quality Management (TQM) approach, from defining quality standards to resolving defective product, working hand in hand with the QC staff.</li>
+        <li>Redesigned QC processes and used root-cause analysis on product defects to find the causes of scrap and rework; revised QC procedures.</li>
       </ul>
+    </article>
+
+  </div>
+</section>
+
+<section id="skills" class="tint">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skillgrid">
+
+      <div class="group">
+        <h3>Business analysis</h3>
+        <ul class="chips">
+          <li>Product-spec review and approval</li>
+          <li>Refining requirements through end-user feedback</li>
+          <li>Testing system setup with end users</li>
+          <li>CRM data migration (from ERP exports)</li>
+          <li>End-user training and support</li>
+          <li>SOPs and process documentation</li>
+          <li>Project coordination</li>
+          <li>Root-cause analysis</li>
+          <li>Total Quality Management</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Systems</h3>
+        <ul class="chips">
+          <li>HubSpot CRM (implementation, administration, workflows, dashboards)</li>
+          <li>UniPoint QMS (setup and rollout)</li>
+          <li>SYSPRO ERP (reporting on its data)</li>
+          <li>Crystal Reports (inventory of 107 reports; conversion toward Power BI)</li>
+          <li>Excel (AI-assisted)</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Reporting and operations data</h3>
+        <ul class="chips">
+          <li>Recurring operational reports from ERP data</li>
+          <li>Weekly sales and pipeline reporting</li>
+          <li>CRM data quality</li>
+          <li>CRM pipeline forecasting</li>
+          <li>Commission-plan design (with sales leadership)</li>
+          <li>Sales seasonality analysis</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>AI</h3>
+        <ul class="chips">
+          <li>Anthropic Claude</li>
+          <li>AI-directed builds (design, direct AI coding tools, verify end to end)</li>
+          <li>Plain-language questions over ERP data</li>
+          <li>Read-only, role-based data access with audit logging</li>
+          <li>SQL literacy</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section id="projects">
+<section id="project">
   <div class="wrap">
-    <h2><span class="bar"></span>Projects</h2>
-    <div class="cards">
-      <div class="card">
+    <h2>Side project</h2>
+    <div class="project">
+      <article class="card">
+        <p class="kicker">ENGR 5513, Applied AI in Engineering · Lipscomb University · Summer 2026</p>
         <h3>Weekend Road Trip</h3>
-        <p>Full-stack browser game in vanilla JS + HTML5 Canvas, backed by a Vercel serverless API and Neon Postgres. CI runs a deterministic balance simulation plus DOM smoke and API contract tests on every push; accessibility throughout.</p>
+        <p>A browser road-trip game set in Nashville, built as a class project. It is an AI-directed build: I designed it, directed AI coding tools to build it, and verified it. Automated tests run on every change.</p>
         <div class="links">
-          <a href="https://weekend-road-trip-forrestw200.vercel.app" target="_blank" rel="noopener">Live demo →</a>
-          <a href="https://github.com/fwwright1001-coder/weekend-road-trip" target="_blank" rel="noopener">Code →</a>
+          <a href="https://github.com/fwwright1001-coder/weekend-road-trip" target="_blank" rel="noopener">Repository on GitHub</a>
+          <a href="https://weekend-road-trip-forrestw200.vercel.app" target="_blank" rel="noopener">Live demo</a>
         </div>
-      </div>
-      <div class="card">
-        <span class="tag">Private</span>
-        <h3 style="margin-top:.5rem">Internal AI Platform</h3>
-        <p>An internal AI/operations platform unifying ERP, CRM, and QC data behind a SQL Server service layer with a Qdrant-backed RAG pipeline on the Claude API. Described only through sanitized architecture and implementation patterns.</p>
-      </div>
+      </article>
+      <p class="aside">My work at Com-Pac is internal to the company, so it is not on GitHub.</p>
     </div>
   </div>
 </section>
 
-<section id="education" class="edu">
+<section id="education" class="tint">
   <div class="wrap">
-    <h2><span class="bar"></span>Education &amp; Certifications</h2>
-    <div class="row"><span class="sch">Lipscomb University</span><span class="deg">M.S. Applied Artificial Intelligence — in progress (Grad Certificate Dec 2026, M.S. 2027)</span></div>
-    <div class="row"><span class="sch">Texas Tech University</span><span class="deg">Bachelor of Business Administration (BBA), Business Management — Strategic Entrepreneurship</span></div>
-    <div class="row"><span class="sch">John A. Logan College</span><span class="deg">Associate of Arts</span></div>
-    <div class="row"><span class="sch">Certifications</span><span class="deg">Lean Six Sigma Green Belt (Purdue) · HubSpot</span></div>
+    <h2>Education and certifications</h2>
+    <ul class="edu">
+      <li><strong>Master of Science in Applied Artificial Intelligence</strong> Lipscomb University, Nashville, TN · Expected May 2027</li>
+      <li><strong>BBA in Business Management: Strategic Entrepreneurship</strong> Texas Tech University, Lubbock, TX · May 2021</li>
+      <li><strong>Associate of Arts</strong> John A. Logan College</li>
+    </ul>
+    <div class="certs">
+      <h3>Certifications</h3>
+      <p>Lean Six Sigma Green Belt (Purdue University) · HubSpot Academy</p>
+    </div>
   </div>
 </section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="intro">You can reach me by email or on LinkedIn. I am based in Nashville, TN, and I am open to contract and contract-to-hire roles. Thank you for your time.</p>
+    <ul class="contact">
+      <li><span class="lbl">Email</span><a href="mailto:forrestwright1001@gmail.com">forrestwright1001@gmail.com</a></li>
+      <li><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/forrest-wright" target="_blank" rel="noopener">linkedin.com/in/forrest-wright</a></li>
+      <li><span class="lbl">GitHub</span><a href="https://github.com/fwwright1001-coder" target="_blank" rel="noopener">github.com/fwwright1001-coder</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
 
 <footer>
   <div class="wrap">
-    <p>Forrest Wright · Nashville, TN · <a href="mailto:fwwright1001@gmail.com">fwwright1001@gmail.com</a></p>
-    <p style="margin-top:6px"><a href="https://www.linkedin.com/in/forrest-wright" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/fwwright1001-coder" target="_blank" rel="noopener">GitHub</a></p>
+    <p>Forrest Wright · Business Systems Analyst · Nashville, TN</p>
+    <div class="foot-links">
+      <a href="mailto:forrestwright1001@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/forrest-wright" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/fwwright1001-coder" target="_blank" rel="noopener">GitHub</a>
+    </div>
   </div>
 </footer>
+
 </body>
 </html>
